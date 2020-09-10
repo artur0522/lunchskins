@@ -1,0 +1,37 @@
+<div class="thank-you">
+    <h1>{{ section.settings.thank_you_title }}</h1>
+    <p>{{ section.settings.thank_you_phrase }}</p>
+    <a href="{{ section.settings.thank_you_cta_url }}" class="btn action_button">{{ section.settings.thank_you_cta_label }}</a>
+</div>
+
+{% schema %}
+{
+    "name": "Thank you page",
+    "class": "thank-you-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "thank_you_title",
+        "label": "Title",
+        "default": "Your application has been submitted"
+      },
+      {
+        "type": "text",
+        "id": "thank_you_phrase",
+        "label": "Phrase",
+        "default": "You will receive a confirmation email as soon as your application is accepted."
+      },
+      {
+        "type": "text",
+        "id": "thank_you_cta_label",
+        "label": "CTA Label",
+        "default": "Go back to the login page"
+      },
+      {
+        "type": "url",
+        "id": "thank_you_cta_url",
+        "label": "CTA URL"
+      }
+    ]
+}
+{% endschema %}

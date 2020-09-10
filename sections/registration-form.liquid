@@ -1,0 +1,235 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="sixteen columns clearfix collection_nav">
+  <h1>{{ 'customer.register.title' | t }}</h1>
+  <div class="feature_divider"></div>
+</div>
+
+<div class="section clearfix">
+  <p>
+  * required field
+  </p>
+  
+  {% form 'create_customer' %}
+  <div id="customer">
+    <!-- Create Customer -->
+    <div id="create-customer">
+      {{ form.errors | default_errors }}
+
+      <div class="row">
+       <div class="eight columns alpha">
+         
+         <h2>Company Contact</h2>
+
+		 <div class="clearfix large_form">
+          <label for="company_name" class="login">{{ 'customer.register.company_name' | t }}*</label>
+          <input type="text" value="" name="customer[Company Name]" id="company_name" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="address" class="login">{{ 'customer.register.address' | t }}*</label>
+           <input type="text" value="" name="customer[Address]" id="address" class="large" size="30" required />
+         </div>
+
+         <div class="clearfix large_form">
+           <label for="address2" class="login">{{ 'customer.register.address2' | t }}</label>
+           <input type="text" value="" name="customer[Address 2]" id="address2" class="large" size="30" />
+         </div>
+         
+         <div class="row">
+	       <div class="eight columns alpha">
+             <div class="clearfix large_form">
+               <label for="city" class="login">{{ 'customer.register.city' | t }}*</label>
+               <input type="text" value="" name="customer[City]" id="city" class="large" size="30" required />
+             </div>
+           </div>
+           <div class="eight columns omega">
+             <div class="clearfix large_form">
+               <label for="zip_code" class="login">{{ 'customer.register.zip_code' | t }}*</label>
+               <input type="text" value="" name="customer[Zip Code]" id="zip_code" class="large" size="30" required />
+             </div>
+           </div>
+         </div>
+         
+         <div class="row">
+	       <div class="eight columns alpha">
+             <div class="clearfix large_form">
+               <label for="state" class="login">{{ 'customer.register.state' | t }}*</label>
+               <input type="text" value="" name="customer[State]" id="state" class="large" size="30" required />
+             </div>
+           </div>
+           <div class="eight columns omega">
+             <div class="clearfix large_form">
+               <label for="country" class="login">Country*</label>
+               <input type="text" value="" name="customer[Country]" id="country" class="large" size="30" required />
+             </div>
+           </div>
+         </div>
+         
+         <div class="row">
+	       <div class="eight columns alpha">
+             <div class="clearfix large_form">
+               <label for="phone_number" class="login">{{ 'customer.register.phone_number' | t }}*</label>
+               <input type="text" value="" name="customer[Phone Number]" id="phone_number" class="large" size="30" required />
+             </div>
+           </div>
+           <div class="eight columns omega">
+             <div class="clearfix large_form">
+               <label for="fax_number" class="login">Fax</label>
+               <input type="text" value="" name="customer[Fax]" id="fax_number" class="large" size="30" />
+             </div>
+           </div>
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="website" class="login">Website*</label>
+           <input type="text" value="" name="customer[Website]" id="website" class="large" size="30" required />
+         </div>
+
+         <div class="clearfix large_form">
+           <label for="type_of_business" class="login">{{ 'customer.register.type_of_business' | t }}*</label>
+           <input type="text" value="" name="customer[Type of Business]" id="type_of_business" class="large" size="30" required />
+         </div>
+
+         <div class="clearfix large_form">
+           <label>Are you an online only business?*</label>
+           <p>
+             <input type="radio" id="OnlineOnlyYes" name="customer[Are you an online only business]" value="Yes" /> <label class="label-inline" for="OnlineOnlyYes">Yes</label>
+             <input type="radio" id="OnlineOnlyNo" name="customer[Are you an online only business]" value="No" /> <label class="label-inline" for="OnlineOnlyNo">No</label>
+           </p>
+         </div>
+         
+         <div class="row">
+	       <div class="eight columns alpha">
+             <div class="clearfix large_form">
+               <label for="facebook" class="login">Facebook URL</label>
+               <input type="text" value="" name="customer[Facebook]" id="facebook" class="large" size="30" />
+             </div>
+           </div>
+           <div class="eight columns omega">
+             <div class="clearfix large_form">
+               <label for="instagram" class="login">Instagram URL</label>
+               <input type="text" value="" name="customer[Instagram]" id="instagram" class="large" size="30" />
+             </div>
+           </div>
+         </div>
+
+         <div class="clearfix large_form">
+           <label for="password" class="login">{{ 'customer.register.password' | t }}*</label>
+           <input type="password" value="" name="customer[password]" id="password" class="large password" />
+         </div>
+         
+         <h2>Buyer Contact</h2>
+         
+         <div class="clearfix large_form">
+           <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}*</label>
+           <input type="text" value="" name="customer[First Name]" id="first_name" class="large" size="30" required />
+         </div>
+
+         <div class="clearfix large_form">
+           <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}*</label>
+           <input type="text" value="" name="customer[Last Name]" id="last_name" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="email" class="login">{{ 'customer.register.email' | t }}*</label>
+           <input type="email" value="" name="customer[email]" id="email" class="large" />
+           <small style="display: inline-block;padding-bottom: 16px;">(If you have an account with us, please enter the email address associated with your account.)</small>
+         </div>
+
+         <div class="clearfix large_form">
+           <label for="customer_title" class="login">{{ 'customer.register.customer_title' | t }}*</label>
+           <input type="text" value="" name="customer[Customer Title]" id="customer_title" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="customer_additional_1" class="login">Additional Contact 1</label>
+           <input type="text" value="" name="customer[Additional Contact 1]" id="customer_additional_1" class="large" size="30" />
+         </div>
+         
+         <div id="customer_additional_2" class="clearfix large_form">
+           <label for="customer_additional_2" class="login">Additional Contact 2</label>
+           <input type="text" value="" name="customer[Additional Contact 2]" id="customer_additional_2" class="large" size="30" />
+         </div>
+       </div>
+       <div class="eight columns omega">
+         <h2>Tell Us About You</h2>
+         
+         <div class="clearfix large_form">
+           <label for="how_long_have_you_been_in_business" class="login">How long have you been in business*</label>
+           <input type="text" value="" name="customer[How long have you been in business]" id="how_long_have_you_been_in_business" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="what_is_your_best_selling_jewelry_category" class="login">What is your best selling jewelry category?*</label>
+           <input type="text" value="" name="customer[What is your best selling jewelry category]" id="what_is_your_best_selling_jewelry_category" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="what_is_your_average_price_point" class="login">What is your average price point?*</label>
+           <input type="text" value="" name="customer[What is your average price point]" id="what_is_your_average_price_point" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="what_brands_do_you_carry" class="login">What brands do you carry?*</label>
+           <input type="text" value="" name="customer[What brands do you carry]" id="what_brands_do_you_carry" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="distribution_conflict" class="login">What stores in your area create a distribution conflict?*</label>
+           <input type="text" value="" name="customer[What stores in your area create a distribution conflict]" id="distribution_conflict" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="what_trade_shows_do_you_attend" class="login">What trade shows do you attend?*</label>
+           <input type="text" value="" name="customer[What trade shows do you attend]" id="what_trade_shows_do_you_attend" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label for="how_did_you_hear_about_project_halo" class="login">How did you hear about Project Halo?*</label>
+           <input type="text" value="" name="customer[How did you hear about Project Halo]" id="how_did_you_hear_about_project_halo" class="large" size="30" required />
+         </div>
+         
+         <div class="clearfix large_form">
+           <label>Can you support the $1000 minimum opening order?</label>
+           <p>
+             <input type="radio" id="SupportYes" name="customer[Can you support the $1000 minimum opening order]" value="Yes" /> <label class="label-inline" for="SupportYes">Yes</label>
+             <input type="radio" id="SupportNo" name="customer[Can you support the $1000 minimum opening order]" value="No" /> <label class="label-inline" for="SupportNo">No</label>
+           </p>
+         </div>
+         
+         {% if section.settings.text %}
+         {{ section.settings.text }}
+         {% endif %}
+
+         <div class="acceptsMarketing">
+           <input type="checkbox" id="customer[accepts_marketing]" name="customer[accepts_marketing]">
+           <label for="customer[accepts_marketing]">{{ 'customer.register.accepts_marketing' | t }}</label>
+         </div>
+
+         <div class="action_bottom">
+           <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
+           <p class="right" style="padding-top: 8px;">
+             {{ 'customer.register.returning_customer_label' | t }} {{ 'customer.register.sign_in_html' | t | customer_login_link }}
+           </p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endform %}
+</div>
+
+{% schema %}
+  {
+    "name": "Register",
+    "class": "register-section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      }
+    ]
+  }
+{% endschema %}

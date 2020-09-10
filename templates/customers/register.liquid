@@ -1,0 +1,236 @@
+{% comment %}
+{% section 'registration-form' %}
+{% endcomment %}
+<style>
+    p.error {
+        margin: -10px 0 15px;
+        font-size: 14px;
+        color: red;
+    }
+</style>
+
+<h1>Application</h1>
+
+<form id="application-form" action="#" method="POST" novalidate>
+
+    <!-- <input type="hidden" name="_next" value="/pages/thank-you"> -->
+
+    <div class="row">
+
+        <div class="eight columns alpha">
+
+            <h2>Company Contact</h2>
+
+            <div class="clearfix large_form">
+                <label for="company_name" class="login">{{ 'customer.register.company_name' | t }}*</label>
+                <input type="text" value="" name="company_name" id="company_name" class="large" size="30"
+                    required />
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="address" class="login">{{ 'customer.register.address' | t }}*</label>
+                        <input type="text" value="" name="address" id="address" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="address2" class="login">{{ 'customer.register.address2' | t }}</label>
+                        <input type="text" value="" name="address2" id="address2" class="large" size="30" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="city" class="login">{{ 'customer.register.city' | t }}*</label>
+                        <input type="text" value="" name="city" id="city" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="zip_code" class="login">{{ 'customer.register.zip_code' | t }}*</label>
+                        <input type="text" value="" name="zip_code" id="zip_code" class="large" size="30"
+                            required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="state" class="login">{{ 'customer.register.state' | t }}*</label>
+                        <input type="text" value="" name="state" id="state" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="country" class="login">Country*</label>
+                        <input type="text" value="" name="country" id="country" class="large" size="30"
+                            required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="phone_number" class="login">{{ 'customer.register.phone_number' | t }}*</label>
+                        <input type="text" value="" name="phone_number" id="phone_number" class="large" size="30"
+                            required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="fax_number" class="login">Fax</label>
+                        <input type="text" value="" name="fax_number" id="fax_number" class="large" size="30" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix large_form">
+                <label for="website" class="login">Website*</label>
+                <input type="text" value="" name="website" id="website" class="large" size="30" required />
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">        
+                    <div class="clearfix large_form">
+                        <label for="type_of_business" class="login">{{ 'customer.register.type_of_business' | t }}*</label>
+                        <input type="text" value="" name="type_of_business" id="type_of_business" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">        
+                    <div class="clearfix large_form">
+                        <label>Are you an online only business?*</label>
+                        <p>
+                            <input type="radio" required id="OnlineOnlyYes" name="online_business" value="1" />
+                            <label class="label-inline" for="OnlineOnlyYes">Yes</label>
+                            <input type="radio" required id="OnlineOnlyNo" name="online_business" value="0" />
+                            <label class="label-inline" for="OnlineOnlyNo">No</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="facebook" class="login">Facebook URL</label>
+                        <input type="text" value="" name="facebook" id="facebook" class="large" size="30" />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="instagram" class="login">Instagram URL</label>
+                        <input type="text" value="" name="instagram" id="instagram" class="large" size="30" />
+                    </div>
+                </div>
+            </div>
+
+            <h2>Buyer Contact</h2>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="first_name" class="login">First Name *</label>
+                        <input type="text" value="" name="first_name" id="first_name" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="last_name" class="login">Last Name *</label>
+                        <input type="text" value="" name="last_name" id="last_name" class="large" size="30" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="customer_title" class="login">Title *</label>
+                        <input type="text" value="" name="title" id="customer_title" class="large" size="30" required />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div class="clearfix large_form">
+                        <label for="email" class="login">Email Address *</label>
+                        <input type="email" value="" name="email" id="email" class="large" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="eight columns alpha">
+                    <div class="clearfix large_form">
+                        <label for="additional_contact_1" class="login">Additional Contact 1</label>
+                        <input type="text" value="" name="additional_contact_1" id="additional_contact_1" class="large" size="30" />
+                    </div>
+                </div>
+                <div class="eight columns omega">
+                    <div id="additional_contact_2" class="clearfix large_form">
+                        <label for="additional_contact_2" class="login">Additional Contact 2</label>
+                        <input type="text" value="" name="additional_contact_2" id="additional_contact_2" class="large" size="30" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="eight columns omega">
+
+            <h2>Tell Us About You</h2>
+
+            <div class="row">
+                <div class="clearfix large_form">
+                    <label for="how_long_have_you_been_in_business" class="login">How long have you been in business *</label>
+                    <input type="text" value="" name="how_long_have_you_been_in_business" id="how_long_have_you_been_in_business" class="large" size="30" required />
+                </div>
+                <div class="clearfix large_form">
+                    <label for="what_is_your_best_selling_jewelry_category" class="login">What is your best selling jewelry category? *</label>
+                    <input type="text" value="" name="what_is_your_best_selling_jewelry_category" id="what_is_your_best_selling_jewelry_category" class="large" size="30" required />
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="clearfix large_form">
+                    <label for="what_is_your_average_price_point" class="login">What is your average price point? *</label>
+                    <input type="text" value="" name="what_is_your_average_price_point" id="what_is_your_average_price_point" class="large" size="30" required />
+                </div>
+                <div class="clearfix large_form">
+                    <label for="what_brands_do_you_carry" class="login">What brands do you carry? *</label>
+                    <input type="text" value="" name="what_brands_do_you_carry" id="what_brands_do_you_carry" class="large" size="30" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="clearfix large_form">
+                    <label for="distribution_conflict" class="login">What stores in your area create a distribution conflict? *</label>
+                    <input type="text" value="" name="distribution_conflict" id="distribution_conflict" class="large" size="30" required />
+                </div>
+                <div class="clearfix large_form">
+                    <label for="what_trade_shows_do_you_attend" class="login">What trade shows do you attend? *</label>
+                    <input type="text" value="" name="what_trade_shows_do_you_attend" id="what_trade_shows_do_you_attend" class="large" size="30" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="clearfix large_form">
+                    <label for="how_did_you_hear_about_project_halo" class="login">How did you hear about Canvas? *</label>
+                    <input type="text" value="" name="how_did_you_hear_about_project_halo" id="how_did_you_hear_about_project_halo" class="large" size="30" required />
+                </div>
+            </div>
+
+            <div class="acceptsMarketing">
+                <input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" required>
+                <label for="terms_and_conditions">I agree to the <a href="#">Retail Dealer Agreement *</a></label>
+            </div>
+
+            <div class="action_bottom">
+                <button class="btn action_button">Submit Application</button>
+            </div>
+
+        </div>        
+    </div>
+</form>
