@@ -1,10 +1,15 @@
-{% unless customer and customer.tags contains 'approved' %}
-      {% if template contains 'customers' %}
-	      {% assign send_to_login = false %}
-      {% else %}
-          {% assign send_to_login = true %}
-      {% endif %}
-{% endunless %}
+{% if settings.force_login %}
+  {% unless customer and customer.tags contains 'approved' %}
+        {% if template contains 'customers' %}
+          {% assign send_to_login = false %}
+        {% else %}
+            {% assign send_to_login = true %}
+        {% endif %}
+  {% endunless %}  
+{% else %}
+  {% assign send_to_login = false %}
+{% endif %}
+
 
 {% if send_to_login and request.path != "/challenge" and request.path != '/pages/application' and request.path != '/pages/thank-you' %}
   <meta content="1;url=/account/login?checkout_url=/" http-equiv="refresh" />
