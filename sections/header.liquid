@@ -183,12 +183,19 @@
                                 {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
                               {% endfor %}
                             {% endunless %}
+                            {% assign quantity_increments = 2 %}
                             {% if item.properties %}
                               {% for p in item.properties %}
                                 {% if p.last != blank %}
-                                  <div class="line-item">
-                                    {{ p.first }}: {{ p.last }}
-                                  </div>
+                                  {% if p.first == '_tags' %}
+                                    {% if p.last contains '6pc-increments' %}
+                                      {% assign quantity_increments = 6 %}
+                                    {% endif %}
+                                  {% else %}
+                                    <div class="line-item">
+                                      {{ p.first }}: {{ p.last }}
+                                    </div>
+                                  {% endif %}
                                 {% endif %}
                               {% endfor %}
                             {% endif %}
@@ -196,7 +203,8 @@
                         </a>
                         <div class="left product-quantity-box">
                           <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                          <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
+                          <input type="number" min="0" size="{{ quantity_increments }}" step="{{ quantity_increments }}" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
+                          <input type="hidden" name="properties[_tags]" value="{{ item.properties['_tags'] }}" />
                           <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
                         </div>
                       </div>
