@@ -55,6 +55,7 @@
                 </p>
               {% endunless %}
 
+              {% assign quantity_increments = 2 %}
               {% if item.properties %}
                 <p>
                   {% for p in item.properties %}
@@ -64,9 +65,15 @@
                           {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
                         </div>
                       {% else %}
-                        <div>
-                          {{ p.first }}: {{ p.last }}
-                        </div>
+                        {% if p.first == '_tags' %}
+                          {% if p.last contains '6pc-increments' %}
+                            {% assign quantity_increments = 6 %}
+                          {% endif %}
+                        {% else %}
+                          <div>
+                            {{ p.first }}: {{ p.last }}
+                          </div>
+                        {% endif %}
                       {% endif %}
                     {% endunless %}
                   {% endfor %}
@@ -84,10 +91,11 @@
                   <span class="money was_price">{{ item.variant.compare_at_price | money }}</span>
                 {% endif %}
               </p>
-
+              
               <div class="product-quantity-box left">
                 <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                <input type="number" min="0" size="{{ quantity_increments }}" step="{{ quantity_increments }}" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                <input type="hidden" name="properties[_tags]" value="{{ item.properties['_tags'] }}" />
                 <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
               </div>
             </div>

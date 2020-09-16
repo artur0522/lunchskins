@@ -872,9 +872,9 @@ var productPage = {
         }
 
         if($this.data('func') == 'plus') {
-            if(val < valMax) $input.val(val + 2); // ASML
+            if(val < valMax) $input.val(val + (parseInt($input.attr('step'), 10) || 2)); // ASML
         } else {
-            if(val > valMin) $input.val(val - 2); // ASML
+            if(val > valMin) $input.val(val - (parseInt($input.attr('step'), 10) || 2)); // ASML
             if($this.parents(".cart_item").length) {
               if (val - 1 == 0) {
                 $this.closest('.cart_item').addClass('animated fadeOutUp')
