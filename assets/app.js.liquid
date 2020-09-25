@@ -997,10 +997,20 @@ $(document)
 
 (function($) {
     $(document).ready( function () {
+      var submitting = false; 
 
       $('#application-form').submit(function( event ) {
           event.preventDefault(); 
+          var $form = $(this);
+          var $button = $form.find('button.action_button'); 
+
+          if ( submitting ) {
+            return false;
+          }; 
+
           var api_url = 'https://canvas.riessgroup.com/api/forms'; 
+          submitting = true;
+          $button.prop('disabled', true);
           $('p.error').remove();
           $.ajax({
               url: api_url, 
@@ -1026,6 +1036,9 @@ $(document)
                           .parent().append('<p class="error">'+ errors[field_name] +'</p>')
                       }
                     }
+
+                    submitting = false; 
+                    $button.prop('disabled', false);
                   }
               }
           }); 
