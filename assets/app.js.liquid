@@ -437,6 +437,9 @@ $(function() {
       $('.js-cart_content__form').removeClass('hidden');
 
       $.each(cart.items, function(index, item) {
+        console.log('Tags: ', item.properties['_tags']);
+        var item_tags = item.properties['_tags'].split('|');
+        var qty_increments = item_tags.includes('6pc-increments') ? 6 : 2;
         var line_id = index + 1;
         cart_items_html += '<li class="cart_item clearfix">' +
           '<a href="' + item.url +'">';
@@ -450,7 +453,7 @@ $(function() {
 
         if(item.properties) {
           $.each(item.properties, function(title, value) {
-            if (value) {
+            if (value && title != '_tags') {
               cart_items_html += '<div class="line-item">' + title +': ' + value + '</div>';
             }
           });
@@ -459,7 +462,8 @@ $(function() {
 
         cart_items_html += '<div class="left product-quantity-box">' +
             '<span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>' +
-            '<input type="number" min="0" class="quantity" name="updates[]" id="updates_' + item.id + '" value="' + item.quantity +'" data-line-id="' + line_id +'" />' +
+            '<input type="number" min="0" class="quantity" step="' + qty_increments + '" name="updates[]" id="updates_' + item.id + '" value="' + item.quantity +'" data-line-id="' + line_id +'" />' +
+            '<input type="hidden" name="properties[_tags]" value="' + item.properties['_tags'] + '">' +
             '<span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>' +
           '</div>' +
         '</div>';

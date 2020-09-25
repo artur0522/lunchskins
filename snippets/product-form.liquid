@@ -68,14 +68,18 @@
         {% endif %}
       </div>
     {% endif %}
-
+    {% assign quantity_increments = 2 %}
+    {% if product.tags contains '6pc-increments' %}
+      {% assign quantity_increments = 6 %}
+    {% endif %}
     <div class="purchase-details">
       {% if settings.display_product_quantity %}
       <div class="purchase-details__quantity product-quantity-box">
         <label for="quantity">{{ 'products.product.quantity' | t }}</label>
         <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
         {% comment %}ASML / quantity min and value{% endcomment %}
-        <input type="number" min="2" size="2" class="quantity" name="quantity" id="quantity" value="2" {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"{% endif %} />
+        <input type="number" min="{{ quantity_increments }}" step="{{ quantity_increments }}" size="{{ quantity_increments }}" class="quantity" name="quantity" id="quantity" value="{{ quantity_increments }}" {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"{% endif %} />
+        <input type="hidden" name="properties[_tags]" value="{{ product.tags | join: '|' }}" />
         <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
       </div>
       {% endif %}
