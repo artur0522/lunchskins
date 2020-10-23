@@ -414,6 +414,9 @@
       "close_window": "Close",
       "designer_credits_html": "<a href=\"https:\/\/outofthesandbox.com\/\" target=\"_blank\" title=\"Turbo Shopify Theme by Out of the Sandbox\">Designed by Out of the Sandbox<\/a>."
     },
+    "downloads": {
+      "button_label": "Download Assets"
+    },
     "social_sharing": {
       "title": "Share",
       "twitter_share": "Check out {{ title }} from {{ name }}: {{ current_url }}",
