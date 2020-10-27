@@ -137,6 +137,11 @@
               <textarea id="note" name="note" rows="2">{{ cart.note }}</textarea>
             {% endif %}
 
+            <div class="had_help">
+              <label for="had_help">Did a sales representative help you with this order?</label>
+              <input type="text" id="had_help" name="properties[_had_help]" value="" />
+            </div>
+
             {% if settings.display_tos_checkbox %}
               <p>
                 <input type="checkbox" class="tos_agree" id="cart_agree" required />

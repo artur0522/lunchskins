@@ -85,7 +85,9 @@
       {% endif %}
 
       {% if variant.inventory_quantity < 1 %}
+      {% unless variant.inventory_policy == 'continue' %}
         <p class="backorder-text">{{ settings.backorder_text }}</p>
+      {% endunless %}
       {% endif %}
 
       <div class="purchase-details__buttons purchase-details__spb--{{ show_payment_button }}">
