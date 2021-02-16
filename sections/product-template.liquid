@@ -112,8 +112,8 @@
           {% endif %}
           <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
          
-          {% if product.selected_or_first_available_variant.barcode %}
-	          <p class="product_barcode">Item number <span>{{ product.selected_or_first_available_variant.barcode }}</span></p>
+          {% if product.selected_or_first_available_variant.sku %}
+	          <p class="product_barcode">Item number <span>{{ product.selected_or_first_available_variant.sku }}</span></p>
           {% endif %}
           
           {% if section.settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
